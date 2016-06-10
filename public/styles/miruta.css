@@ -1,0 +1,22 @@
+.mapa{
+    display: block;
+    height: calc(100vh - 200px)!important;
+    width: 100%;
+}
+.user-avatar{
+    border-radius: 125px;
+    border-color: white;
+    border-style: solid;
+    border-width: 4px;
+    box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 5px;
+}
+.dashboard-page .sidebar {    
+    background-color: #0b2641;
+}
+.login-page {
+    background-color: #0b2641;
+}
+.btn-outline.btn-primary {
+    box-shadow: 0 0 0 2px #0b2641 inset;
+    color: #0b2641;
+}
