@@ -13,6 +13,6 @@ app.get('/*', function (req, res) {
     res.render("index");
 });
 
-app.listen(80, function () {
+app.listen(8080, function () {
     console.log("corriendo el server");
 });
