@@ -1,10 +1,39 @@
-<div> 
+<div>
     <a ui-sref=overview class="pull-right btn btn-primary btn-outline btn-rounded">Regresar al Mapa</a>
-    <h2>Rutas</h2> 
+    <h2>Rutas</h2>
     <div class=jumbotron>
         <div class=container>
             <h1>Rutas</h1>
+            <div ng-repeat="ruta in rutas">
+                <h2>{{ruta.nombre}}</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Latitud</th>
+                                    <th>Longitud</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="point in ruta.camino">
+                                    <td>{{$index}}</td>
+                                    <td>{{point._latitude}}</td>
+                                    <td>{{point._longitude}}</td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <img ng-if="ruta.polyline" src="https://maps.googleapis.com/maps/api/staticmap?size=400x400&path=weight:5%7Ccolor:blue%7Cenc:{{ruta.polyline}}&key=AIzaSyDMJxPp7Wbgt8Q1cpdqfgXc0umSaiNDbK4" />
+                    </div>
+
+
+                </div>
+            </div>
         </div>
     </div>
-    
+
 </div>

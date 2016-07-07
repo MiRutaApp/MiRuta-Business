@@ -1,10 +1,33 @@
-<div> 
+<div>
     <a ui-sref=overview class="pull-right btn btn-primary btn-outline btn-rounded">Regresar al Mapa</a>
-    <h2>Unidades</h2> 
+    <h2>Unidades</h2>
     <div class=jumbotron>
         <div class=container>
             <h1>Unidades</h1>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#id</th>
+                        <th>Nombre</th>
+                        <th>Capacidad</th>
+                        <th>Estado</th>
+                        <th>Ruta</th>
+                        <th>Chofer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="unidad in unidades">
+                        <td>{{unidad.id}}</td>
+                        <td>{{unidad.nombre}}</td>
+                        <td>{{unidad.capacidad}}</td>    
+                        <td>{{unidad.estado}}</td>     
+                        <td>{{unidad.ruta.nombre}}</td>     
+                        <td>{{unidad.chofer.nombre}} <img height="40" width="40" src="{{unidad.chofer.foto}}"/></td>    
+                    </tr>
+                </tbody>
+
+            </table>
         </div>
     </div>
-    
+
 </div>

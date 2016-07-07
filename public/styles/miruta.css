@@ -20,3 +20,19 @@
     box-shadow: 0 0 0 2px #0b2641 inset;
     color: #0b2641;
 }
+.custom-marker{
+    transform: translateY(10px);
+}
+.custom-marker:hover .infoMarker{opacity: 1}
+.infoMarker{
+    width: 250px;
+    -webkit-transition: opacity 500ms;
+    -moz-transition: opacity 500ms;
+    transition: opacity 500ms;
+    opacity: 0;
+    background-color: white;
+    position: absolute;
+    padding: 15px;
+    border-radius: 5px;
+    pointer-events: none;
+}

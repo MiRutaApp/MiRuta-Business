@@ -4,6 +4,23 @@
     <div class=jumbotron>
         <div class=container>
             <h1>Conductores</h1>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#id</th>
+                        <th>Nombre</th>
+                        <th>foto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="conductor in conductores">
+                        <td>{{conductor.id}}</td>
+                        <td>{{conductor.nombre}}</td>
+                        <td><img height="40" width="40" src="{{conductor.foto}}"/></td>     
+                    </tr>
+                </tbody>
+
+            </table>
         </div>
     </div>
     
