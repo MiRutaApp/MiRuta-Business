@@ -7,22 +7,40 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>#id</th>
-                        <th>Nombre</th>
-                        <th>Capacidad</th>
-                        <th>Estado</th>
-                        <th>Ruta</th>
-                        <th>Chofer</th>
+                        <th class="pointer" ng-click="sortBy('id')">
+                            <span>#id</span>
+                            <span class="sortorder" ng-show="propertyName === 'id'" ng-class="{reverse: reverse}"></span>
+                        </th>
+                        <th class="pointer" ng-click="sortBy('nombre')">
+                            <span>Nombre</span>
+                            <span class="sortorder" ng-show="propertyName === 'nombre'" ng-class="{reverse: reverse}"></span>
+                        </th>
+                        <th class="pointer" ng-click="sortBy('estado')">
+                            <span>Estado</span>
+                            <span class="sortorder" ng-show="propertyName === 'estado'" ng-class="{reverse: reverse}"></span>
+                        </th>
+                        <th class="pointer" ng-click="sortBy('capacidad')">
+                            <span>Capacidad</span>
+                            <span class="sortorder" ng-show="propertyName === 'capacidad'" ng-class="{reverse: reverse}"></span>
+                        </th>
+                        <th class="pointer" ng-click="sortBy('ruta.nombre')">
+                            <span>Ruta</span>
+                            <span class="sortorder" ng-show="propertyName === 'ruta.nombre'" ng-class="{reverse: reverse}"></span>
+                        </th>
+                        <th class="pointer" ng-click="sortBy('chofer.nombre')">
+                            <span>Chofer</span>
+                            <span class="sortorder" ng-show="propertyName === 'chofer.nombre'" ng-class="{reverse: reverse}"></span>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="unidad in unidades">
+                    <tr ng-repeat="unidad in unidades| orderBy:propertyName:reverse" " >
                         <td>{{unidad.id}}</td>
                         <td>{{unidad.nombre}}</td>
-                        <td>{{unidad.capacidad}}</td>    
                         <td>{{unidad.estado}}</td>     
+                        <td>{{unidad.capacidad}}</td>    
                         <td>{{unidad.ruta.nombre}}</td>     
-                        <td>{{unidad.chofer.nombre}} <img height="40" width="40" src="{{unidad.chofer.foto}}"/></td>    
+                        <td><img height="40 " width="40 " src="{{unidad.chofer.foto}} "/> {{unidad.chofer.nombre}} </td>    
                     </tr>
                 </tbody>
 

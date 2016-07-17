@@ -3,7 +3,10 @@
         <div class=row>
             <div class="col-sm-3 col-md-2 sidebar">
                 <div class=text-center>
-                    <h2 class=brand>MiRuta Business</h2> <img src=/images/MiRuta-Bsns.png class=user-avatar><br> <a ui-sref=login class="btn btn-white btn-outline btn-rounded btn-sm">Logout</a>                    </div>
+                    <h2 class=brand>MiRuta Business</h2> <img src=/images/MiRuta-Bsns.png class=user-avatar><br> 
+                    <h3>{{nombreEmpresa}}</h3>
+                    <br/>
+                    <a ui-sref=login class="btn btn-white btn-outline btn-rounded btn-sm">Logout</a>                    </div>
                 <ul class="nav nav-sidebar">
                     <li ng-class="{active: $state.includes('overview')}"><a ui-sref=overview>Ver Mapa <span class=sr-only>(current)</span></a></li>
                     <li ng-class="{active: $state.includes('rutas')}"><a ui-sref=rutas>Rutas</a></li>

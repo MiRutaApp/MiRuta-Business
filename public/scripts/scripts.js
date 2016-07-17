@@ -83,6 +83,7 @@ app.controller("DashboardCtrl", function ($scope, $state, $log) {
     var query = new Parse.Query(Empresa);
     query.get(Parse.User.current().get("empresa").id, {
         success: function (empresa) {
+            $scope.nombreEmpresa = empresa.get("nombre");
             $log.log("empresa", empresa.get("nombre"));
         },
         error: function (object, error) {
@@ -91,6 +92,9 @@ app.controller("DashboardCtrl", function ($scope, $state, $log) {
     });
 });
 app.controller("RutasCtrl", function ($scope, $log, $http) {
+    $scope.$watch("ruta",function(newValue,oldValue){
+        $log.log(newValue);
+    });
 
     var directionsService = new google.maps.DirectionsService;
     $scope.rutas = [];
@@ -125,8 +129,6 @@ app.controller("RutasCtrl", function ($scope, $log, $http) {
                 $log.log("waypoints", waypoints);
                 $log.log("destination", destination);
                 $scope.getRoutePolyline(ruta, origin, waypoints, destination);
-
-
             }
         },
         error: function (object, error) {
@@ -196,6 +198,14 @@ app.controller("UnidadesCtrl", function ($scope, $log) {
             $log.log("rutas", error);
         }
     });
+
+    $scope.propertyName = 'id';
+    $scope.reverse = true;
+
+    $scope.sortBy = function (propertyName) {
+        $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+        $scope.propertyName = propertyName;
+    };
 });
 app.controller("ConductoresCtrl", function ($scope, $log) {
     $log.log("empresa", Parse.User.current().get("empresa").get("nombre"));
@@ -217,6 +227,8 @@ app.controller("ConductoresCtrl", function ($scope, $log) {
             $log.log("rutas", error);
         }
     });
+
+
 });
 app.controller("MapaCtrl", function ($scope, $log, $interval) {
 

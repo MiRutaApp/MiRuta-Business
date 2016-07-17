@@ -3,9 +3,14 @@
     <h2>Rutas</h2>
     <div class=jumbotron>
         <div class=container>
-            <h1>Rutas</h1>
-            <div ng-repeat="ruta in rutas">
-                <h2>{{ruta.nombre}}</h2>
+            <h1>Rutas
+                <select class="form-control" ng-model="rutaIndex" ng-init="rutaIndex = 0">
+                <option ng-repeat="r in rutas" ng-value="$index">{{r.nombre}}</option>
+                </select>
+
+            </h1>
+            <div>
+                <h2>{{rutas[rutaIndex].nombre}}</h2>
                 <div class="row">
                     <div class="col-md-6">
                         <table class="table table-hover">
@@ -17,7 +22,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="point in ruta.camino">
+                                <tr ng-repeat="point in rutas[rutaIndex].camino">
                                     <td>{{$index}}</td>
                                     <td>{{point._latitude}}</td>
                                     <td>{{point._longitude}}</td>
@@ -27,7 +32,8 @@
                         </table>
                     </div>
                     <div class="col-md-6">
-                        <img ng-if="ruta.polyline" src="https://maps.googleapis.com/maps/api/staticmap?size=400x400&path=weight:5%7Ccolor:blue%7Cenc:{{ruta.polyline}}&key=AIzaSyDMJxPp7Wbgt8Q1cpdqfgXc0umSaiNDbK4" />
+                        <img ng-if="rutas[rutaIndex].polyline" src="https://maps.googleapis.com/maps/api/staticmap?size=400x400&path=weight:5%7Ccolor:blue%7Cenc:{{rutas[rutaIndex].polyline}}&key=AIzaSyDMJxPp7Wbgt8Q1cpdqfgXc0umSaiNDbK4"
+                        />
                     </div>
 
 

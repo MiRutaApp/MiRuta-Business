@@ -35,4 +35,15 @@
     padding: 15px;
     border-radius: 5px;
     pointer-events: none;
+    z-index: 500;
+}
+
+.sortorder:after {
+  content: '\25b2';   // BLACK UP-POINTING TRIANGLE
+}
+.sortorder.reverse:after {
+  content: '\25bc';   // BLACK DOWN-POINTING TRIANGLE
+}
+.pointer{
+    cursor: pointer;
 }
